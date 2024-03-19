@@ -6,8 +6,7 @@ public class Dog : Animal
 {
     public Dog(string name) : base(name)
     {
-        maxHealth = 10;
-        currentHealth = maxHealth;
+        SetStartingHealth(7);
 
         attackName = "Bite!";
     }

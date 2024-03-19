@@ -15,5 +15,11 @@ public class Animal
         this.name = name;
     }
 
+    private protected void SetStartingHealth(int health)
+    {
+        maxHealth = health;
+        currentHealth = maxHealth;
+    }
+
     public virtual void Attack() { Debug.Log($"{name} used {attackName}"); }
 }
