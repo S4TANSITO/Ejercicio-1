@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 415862881}
   - component: {fileID: 415862880}
   m_Layer: 0
-  m_Name: Codigo
+  m_Name: Game manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
