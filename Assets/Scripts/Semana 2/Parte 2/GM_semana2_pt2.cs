@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GM_semana2_pt2 : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GM_semana2_pt2 : MonoBehaviour
 
     private int turnoActualEnemigo = 0;
     private bool turnoJugador = true;
+
+    [SerializeField] private TMP_InputField[] atributos;
 
     [SerializeField] private GameObject[] pantallas;
     [SerializeField] private GameObject canvasJugador;
@@ -24,16 +27,7 @@ public class GM_semana2_pt2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Entidad jugador = new Jugador(10, 4);
-        Entidad enemigoMelee = new EnemigoMelee(13, 2);
-        Entidad enemigoRango = new EnemigoRango(8, 1, 3);
-
-        entidades.Add(jugador);
-        entidades.Add(enemigoMelee);
-        entidades.Add(enemigoRango);
-
-        StartCoroutine(ControladorJuego());
-        ActualizarInterfaz();
+        
     }
 
     private void Update()
@@ -99,14 +93,14 @@ public class GM_semana2_pt2 : MonoBehaviour
 
     private bool Victoria()
     {
-        int deathCount = 0;
+        int contadorDeBajas = 0;
 
         for (int i = 1; i < entidades.Count; i++)
         {
-            if(entidades[i].Vida == 0) { deathCount++; }
+            if(entidades[i].Vida == 0) { contadorDeBajas++; }
         }
 
-        if(deathCount == (entidades.Count - 1)) { pantallas[0].SetActive(true); return true; }
+        if(contadorDeBajas == (entidades.Count - 1)) { pantallas[0].SetActive(true); return true; }
         else { return false; }
     }
 
@@ -127,5 +121,43 @@ public class GM_semana2_pt2 : MonoBehaviour
         {
             textosVida[i].text = entidades[i].Vida.ToString();
         }
+    }
+
+    public void EmpezarJuego()
+    {
+        int vida, dmg;
+
+        if (int.TryParse(atributos[0].text, out vida) && int.TryParse(atributos[1].text, out dmg))
+        {
+            if(vida < 100 && dmg < 100)
+            {
+                //EMPEZAR JUEGO!
+                CrearEntidades(vida, dmg);
+                pantallas[2].SetActive(false);
+                StartCoroutine(ControladorJuego());
+            }
+            else { LimpiarCasillas(); }
+        }
+        else { LimpiarCasillas(); }
+    }
+
+    private void LimpiarCasillas()
+    {
+        atributos[0].text = "";
+        atributos[1].text = "";
+        Debug.Log("Valores inválidos!");
+    }
+
+    private void CrearEntidades(int vida, int dmg)
+    {
+        Entidad jugador = new Jugador(vida, dmg);
+        Entidad enemigoMelee = new EnemigoMelee(130, 20);
+        Entidad enemigoRango = new EnemigoRango(80, 10, 3);
+
+        entidades.Add(jugador);
+        entidades.Add(enemigoMelee);
+        entidades.Add(enemigoRango);
+
+        ActualizarInterfaz();
     }
 }

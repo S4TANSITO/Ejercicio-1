@@ -15,7 +15,7 @@ public class EnemigoRango : Entidad
     {
         if (EstaMuerto())
         {
-            GM_semana2_pt2.Instance.SiguienteTurno();
+            //GM_semana2_pt2.Instance.SiguienteTurno();
             return;
         }
 
