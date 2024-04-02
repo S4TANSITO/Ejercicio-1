@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Circulo1 : Figura1
+public class Circulo1 : Figura1, IObtenerArea
 {
     private float _radio;
 
@@ -11,7 +11,7 @@ public class Circulo1 : Figura1
         this._radio = _radio;
     }
 
-    public override float Area()
+    float IObtenerArea.Area()
     {
         float area = _radio * Mathf.Pow(3.14f, 2);
 

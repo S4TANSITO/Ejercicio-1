@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cuadrado1 : Figura1
+public class Cuadrado1 : Figura1, IObtenerArea
 {
     private float _lado;
 
@@ -11,7 +11,7 @@ public class Cuadrado1 : Figura1
         this._lado = _lado;
     }
 
-    public override float Area()
+    float IObtenerArea.Area()
     {
         float area = _lado * _lado;
 

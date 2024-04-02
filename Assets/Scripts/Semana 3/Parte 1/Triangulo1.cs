@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Triangulo1 : Figura1
+public class Triangulo1 : Figura1, IObtenerArea
 {
     private float _base;
     private float _altura;
@@ -13,7 +13,7 @@ public class Triangulo1 : Figura1
         this._altura = _altura;
     }
 
-    public override float Area()
+    float IObtenerArea.Area()
     {
         float area = (_base * _altura) / 2;
 

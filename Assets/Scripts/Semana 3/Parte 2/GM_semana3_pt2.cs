@@ -24,12 +24,6 @@ public class GM_semana3_pt2 : MonoBehaviour
         Instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))
@@ -60,8 +54,15 @@ public class GM_semana3_pt2 : MonoBehaviour
     {
         if (entidades[indiceEntidad].Vida <= 0) { Debug.Log("Toy muerto"); return; }
 
-        if (turnoJugador) { entidades[0].Atacar(entidades[indiceEntidad]); }
-        else { entidades[turnoActualEnemigo].Atacar(entidades[indiceEntidad]); }
+        //if (turnoJugador){ entidades[0].Atacar(entidades[indiceEntidad]); }
+        //else { entidades[turnoActualEnemigo].Atacar(entidades[indiceEntidad]); }
+
+        IAtaque ataque = null;
+
+        if (turnoJugador) { ataque = (IAtaque)entidades[0]; }
+        else { ataque = (IAtaque)entidades[turnoActualEnemigo]; }
+
+        ataque.Atacar(entidades[indiceEntidad]);
 
         ActualizarInterfaz();
 

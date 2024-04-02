@@ -21,6 +21,11 @@ public class GM_semana3 : MonoBehaviour
 
     public void ImprimirArea(string figura)
     {
-        Debug.Log(FigurasDisponibles[figura].Area());
+        IObtenerArea figuraConArea = (IObtenerArea)FigurasDisponibles[figura];
+
+        // Llamar al método Area() a través de la interfaz IObtenerArea
+        float area = figuraConArea.Area();
+
+        Debug.Log($"El área de la figura {figura} es: {area}");
     }
 }

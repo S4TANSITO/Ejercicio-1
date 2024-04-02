@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Figura1
+interface IAtaque
 {
-    public Figura1() { }
+    void Atacar(Entidad1 entAtacada);
 }

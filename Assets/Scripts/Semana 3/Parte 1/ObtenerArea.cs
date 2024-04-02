@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Figura1
+public interface IObtenerArea
 {
-    public Figura1() { }
+    float Area();
 }

@@ -15,17 +15,18 @@ public abstract class Entidad1
         this.dmg = dmg;
     }
 
+    /*
     public virtual void Atacar(Entidad1 entAtacada)
     {
         if (EstaMuerto())
         {
-            //GM_semana2_pt2.Instance.SiguienteTurno();
+            Debug.Log("Estoy muerto :c");
             return;
         }
 
         if (entAtacada.EstaMuerto()) { return; }
         entAtacada.RecibirDmg(dmg);
-    }
+    }*/
 
     public virtual void RecibirDmg(int dmgRecibido)
     {
