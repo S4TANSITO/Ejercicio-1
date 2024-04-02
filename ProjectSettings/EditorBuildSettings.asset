@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Semana 2/Semana 2 pt 2.unity
     guid: 2d4a5a64d0ebb024d95cab72676668a8
+  - enabled: 1
+    path: Assets/Scenes/Semana 3/Semana 3 pt 2.unity
+    guid: 6c688f035583ea646a744cbb6cc3510c
   m_configObjects: {}

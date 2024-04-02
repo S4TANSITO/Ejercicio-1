@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jugador : Entidad
+public class Jugador1 : Entidad1
 {
-    public Jugador(int vida, int dmg) : base(vida, dmg) { }
+    public Jugador1(int vida, int dmg) : base(vida, dmg) { }
 
     public override void RecibirDmg(int dmgRecibido)
     {
